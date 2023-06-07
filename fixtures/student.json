@@ -1,0 +1,41 @@
+[
+{
+    "model": "student.student",
+    "pk": 1,
+    "fields": {
+        "first_name": "Jack",
+        "last_name": "London",
+        "email": "ljack@mail.uk",
+        "courses": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "student.student",
+    "pk": 2,
+    "fields": {
+        "first_name": "William",
+        "last_name": "Williams",
+        "email": "ww4123@mail.com",
+        "courses": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "student.student",
+    "pk": 3,
+    "fields": {
+        "first_name": "Newby",
+        "last_name": "Pythoner",
+        "email": "byveswcu@duabiefw.com",
+        "courses": [
+            1,
+            2
+        ]
+    }
+}
+]

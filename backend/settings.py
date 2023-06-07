@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 
 THIRD_PARTY_APPS = [
     'rest_framework',
-    "drf_spectacular",
+    *(["drf_spectacular"] if DEBUG else []),
 ]
 
 CUSTOM_APPS = [

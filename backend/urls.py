@@ -26,6 +26,5 @@ if settings.DEBUG:
     urlpatterns += [
         path("api/schema/", SpectacularAPIView.as_view(), name="api-schema"),
         path("swagger/", SpectacularSwaggerView.as_view(url_name="api-schema"), name="api-docs"),
-        path('docs/', SpectacularSwaggerView.as_view(url_name='api-schema'), name='swagger-ui'),
         path('redoc/', SpectacularRedocView.as_view(url_name='api-schema'), name='redoc'),
     ]

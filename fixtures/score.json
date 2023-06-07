@@ -1,0 +1,12 @@
+[
+{
+    "model": "score.score",
+    "pk": 1,
+    "fields": {
+        "value": 10,
+        "date": "2023-06-22",
+        "course": 1,
+        "student": 1
+    }
+}
+]
