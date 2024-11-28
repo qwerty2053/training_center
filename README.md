@@ -1,102 +1,113 @@
-# API Учебного центра
+### Training Center API
 
-API для управления учебным центром с использованием Django Rest Framework (DRF). Позволяет управлять курсами, студентами и оценками, а также устанавливать связи между ними. Предоставляет функции CRUD (создание, чтение, обновление, удаление) для каждой сущности и возможность поиска и фильтрации.
+An API for managing a training center using Django Rest Framework (DRF). It allows managing courses, students, and scores, as well as establishing relationships between them. The API provides CRUD (Create, Read, Update, Delete) functionality for each entity, along with search and filtering capabilities.
 
-## Требования
+---
 
-- Python 3.7 и выше
-- Django 3.2 и выше
-- Django Rest Framework 3.12 и выше
+### Requirements
 
-## Установка
+- Python 3.7 or higher  
+- Django 3.2 or higher  
+- Django Rest Framework 3.12 or higher  
 
-1. Клонируйте репозиторий с проектом:
+---
 
-```shell
-git clone https://github.com/qwerty2053/training_center.git
-```
+### Installation
 
-2. Перейдите в каталог проекта:
+1. Clone the project repository:
 
-```shell
-cd training_center
-```
+   ```bash
+   git clone https://github.com/qwerty2053/training_center.git
+   ```
 
-3. Установите зависимости:
+2. Navigate to the project directory:
 
-```shell
-pip install -r requirements.txt
-```
+   ```bash
+   cd training_center
+   ```
 
-4. Создайте базу данных:
+3. Install dependencies:
 
-```shell
-python manage.py migrate
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-5. Запустите сервер разработки:
+4. Create the database:
 
-```shell
-python manage.py runserver
-```
+   ```bash
+   python manage.py migrate
+   ```
 
-## Эндпоинты
+5. Start the development server:
 
-### Курсы (Courses)
+   ```bash
+   python manage.py runserver
+   ```
 
-- `GET /api/courses/` - Получить список курсов
-- `POST /api/courses/` - Создать новый курс
-- `GET /api/courses/{id}/` - Получить информацию о курсе с указанным идентификатором
-- `PUT /api/courses/{id}/` - Обновить информацию о курсе с указанным идентификатором
-- `DELETE /api/courses/{id}/` - Удалить курс с указанным идентификатором
+---
 
-### Студенты (Students)
+### Endpoints
 
-- `GET /api/students/` - Получить список студентов
-- `POST /api/students/` - Создать нового студента
-- `GET /api/students/{id}/` - Получить информацию о студенте с указанным идентификатором
-- `PUT /api/students/{id}/` - Обновить информацию о студенте с указанным идентификатором
-- `DELETE /api/students/{id}/` - Удалить студента с указанным идентификатором
+#### **Courses**
 
-### Оценки (Scores)
+- `GET /api/courses/` - Retrieve a list of courses  
+- `POST /api/courses/` - Create a new course  
+- `GET /api/courses/{id}/` - Retrieve details of a course by ID  
+- `PUT /api/courses/{id}/` - Update a course by ID  
+- `DELETE /api/courses/{id}/` - Delete a course by ID  
 
-- `GET /api/scores/` - Получить список оценок
-- `POST /api/scores/` - Создать новую оценку
-- `GET /api/scores/{id}/` - Получить информацию об оценке с указанным идентификатором
-- `PUT /api/scores/{id}/` - Обновить информацию об оценке с указанным идентификатором
-- `DELETE /api/scores/{id}/` - Удалить оценку с указанным идентификатором
+#### **Students**
 
-### Связи между сущностями
+- `GET /api/students/` - Retrieve a list of students  
+- `POST /api/students/` - Create a new student  
+- `GET /api/students/{id}/` - Retrieve details of a student by ID  
+- `PUT /api/students/{id}/` - Update a student by ID  
+- `DELETE /api/students/{id}/` - Delete a student by ID  
 
-- `POST /api/courses/{course_id}/enroll/{student_id}/` - Добавить студента на курс
+#### **Scores**
 
-### Поиск и фильтрация
+- `GET /api/scores/` - Retrieve a list of scores  
+- `POST /api/scores/` - Create a new score  
+- `GET /api/scores/{id}/` - Retrieve details of a score by ID  
+- `PUT /api/scores/{id}/` - Update a score by ID  
+- `DELETE /api/scores/{id}/` - Delete a score by ID  
 
-- `GET /api/courses/?search=<query>` - Поиск курсов по названию
-- `GET /api/students/?search=<query>` - Поиск студентов по имени и фамилии
+---
 
+### Entity Relationships
 
-## Модели данных
+- `POST /api/courses/{course_id}/enroll/{student_id}/` - Enroll a student in a course  
 
-### Курс (Course)
+---
 
-- `id` (integer): Идентификатор курса.
-- `name` (string): Название курса.
-- `description` (string): Описание курса.
-- `duration` (duration): Длительность курса.
+### Search and Filtering
 
-### Студент (Student)
+- `GET /api/courses/?search=<query>` - Search for courses by name  
+- `GET /api/students/?search=<query>` - Search for students by first and last name  
 
-- `id` (integer): Идентификатор студента.
-- `first_name` (string): Имя студента.
-- `last_name` (string): Фамилия студента.
-- `email` (string): Email студента.
-- `courses` (manytomany): Курсы студента
+---
 
-### Оценка (Score)
+### Data Models
 
-- `id` (integer): Идентификатор оценки.
-- `value` (integer): Значение оценки (число от 1 до 10).
-- `date` (date): Дата оценки.
-- `course` (integer): Идентификатор курса, связанного с оценкой.
-- `student` (integer): Идентификатор студента, связанного с оценкой.
+#### **Course**
+
+- `id` (integer): Course ID  
+- `name` (string): Course name  
+- `description` (string): Course description  
+- `duration` (duration): Course duration  
+
+#### **Student**
+
+- `id` (integer): Student ID  
+- `first_name` (string): Student's first name  
+- `last_name` (string): Student's last name  
+- `email` (string): Student's email  
+- `courses` (many-to-many): Courses associated with the student  
+
+#### **Score**
+
+- `id` (integer): Score ID  
+- `value` (integer): Score value (from 1 to 10)  
+- `date` (date): Date of the score  
+- `course` (integer): Course ID associated with the score  
+- `student` (integer): Student ID associated with the score  
